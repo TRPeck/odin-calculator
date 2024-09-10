@@ -1,0 +1,82 @@
+.container {
+    width: 372px;
+    height: 400px;
+}
+
+.disp {
+    width: auto;
+    height: 100px;
+    border: 2px solid black;
+    border-bottom-width: 1px;
+    border-radius: 8px 8px 0 0;
+    box-sizing: border-box;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    display: flex;
+    justify-content: right;
+    align-items: end;
+    background-color: rgb(255, 255, 255);
+}
+
+.answer {
+    font-size: 18px;
+}
+
+.keypad {
+    width: auto;
+    height: 300px;
+    display: flex;
+    padding: 8px 0 0 8px;
+    border: 2px solid black;
+    border-top-width: 1px;
+    box-sizing: border-box;
+    border-radius: 0 0 8px 8px;
+    background-color: rgb(240, 240, 240);
+}
+
+.numbers {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.operations {
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calculate {
+    width: 20%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn {
+    width: 64px;
+    height: 64px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.btn.num {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.btn.clear {
+    color: white;
+    background-color: red;
+    font-weight: 800;
+}
+
+.btn.equals {
+    height: 136px;
+    align-self: flex-end;
+    color: white;
+    background-color: rgb(59, 216, 59);
+}
