@@ -30,3 +30,21 @@ function operate(op, a, b) {
             return divide(a,b);
     }
 }
+
+function initializeButtons() {
+    const nums = document.querySelectorAll(".btn.num");
+    let dispValue = document.querySelector(".answer");
+    nums.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const val = btn.textContent;
+            if(dispValue.textContent != "0") {
+                dispValue.textContent += val;
+            }
+            else {
+                dispValue.textContent = val;
+            }
+        });
+    });
+}
+
+initializeButtons();
