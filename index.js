@@ -34,14 +34,18 @@ function initializeButtons() {
     const nums = document.querySelectorAll(".btn.num");
     let dispValue = document.querySelector(".answer");
     let lastOperator = false;
+    let evaluated = false;
     //let dispExpression = document.querySelector(".expression");
     nums.forEach((btn) => {
         btn.addEventListener("click", () => {
             const val = btn.textContent;
-            if (dispValue.textContent != "" && lastOperator == true) {
+            // if last button was operator or equals clear the display
+            if (dispValue.textContent != "" && (lastOperator == true || evaluated == true)) {
                 dispValue.textContent = "";
                 dispValue.textContent = val;
+                evaluated = false;
             }
+            // don't add any extra zeroes if one is present
             else if(dispValue.textContent != "0") {
                 dispValue.textContent += val;
             }
@@ -58,21 +62,21 @@ function initializeButtons() {
         firstNum = null;
         secondNum = null;
         operator = "";
+        lastOperator = false;
     });
 
     const equalsBtn = document.querySelector(".btn.equals");
     equalsBtn.addEventListener("click", () => {
-        if(lastOperator == true) {
-            dispValue.textContent = firstNum;
-        }
-        else {
+        // only calculate if we have a number stored and the display isn't empty, otherwise leave as is
+        if(firstNum != null && lastOperator == false){
             secondNum = parseFloat(dispValue.textContent);
             dispValue.textContent = operate(operator, firstNum, secondNum);
             firstNum = parseFloat(dispValue.textContent);
         }
         firstNum = null;
         secondNum = null;
-        lastOperator = false;
+        // set this so we know to overwrite if any numbers are pressed after equals
+        evaluated = true;
         operator = "";
     });
 
@@ -80,13 +84,15 @@ function initializeButtons() {
     operations.forEach(btn => {
         const op = btn.textContent;
         btn.addEventListener("click", () => {
+            // only if we have no number stored and the display isn't empty
             if(firstNum === null && dispValue.textContent !== "") {
                 //dispExpression.textContent = dispValue.textContent + op;
                 firstNum = parseFloat(dispValue.textContent);
                 operator = op;
                 lastOperator = true;
             }
-            else if(firstNum !== null) {
+            // only if we have a number stored and our last button wasn't an operator
+            else if(firstNum !== null && lastOperator == false) {
                 secondNum = parseFloat(dispValue.textContent);
                 dispValue.textContent = operate(operator, firstNum, secondNum);
                 firstNum = parseFloat(dispValue.textContent);
