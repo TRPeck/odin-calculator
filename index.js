@@ -45,7 +45,7 @@ function initializeButtons() {
                 dispValue.textContent = val;
                 evaluated = false;
             }
-            // don't add any extra zeroes if one is present
+            // don't add any extra zeroes if a single zero is already present
             else if(dispValue.textContent != "0") {
                 dispValue.textContent += val;
             }
@@ -75,7 +75,7 @@ function initializeButtons() {
         }
         firstNum = null;
         secondNum = null;
-        // set this so we know to overwrite if any numbers are pressed after equals
+        // set this so we know to overwrite display if any numbers are pressed after equals
         evaluated = true;
         operator = "";
     });
@@ -99,6 +99,11 @@ function initializeButtons() {
                 operator = op;
                 lastOperator = true;
                 //dispExpression.textContent = dispValue.textContent + op;
+            }
+            // if two operators in a row overwrite the previous operator
+            else {
+                operator = op;
+                lastOperator = true;
             }
         });
     });
