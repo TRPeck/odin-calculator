@@ -88,9 +88,25 @@ body {
     font-weight: 800;
 }
 
+.btn.clear:hover {
+    background-color: rgb(255, 0, 0, 0.5);
+}
+
+.btn.clear:active {
+    background-color: red;
+}
+
 .btn.equals {
     height: 136px;
     align-self: flex-end;
     color: white;
+    background-color: rgb(59, 216, 59);
+}
+
+.btn.equals:hover {
+    background-color: rgb(59, 216, 59, 0.5);
+}
+
+.btn.equals:active {
     background-color: rgb(59, 216, 59);
 }

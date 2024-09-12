@@ -63,6 +63,7 @@ function initializeButtons() {
         secondNum = null;
         operator = "";
         lastOperator = false;
+        evaluated = false;
     });
 
     const equalsBtn = document.querySelector(".btn.equals");
