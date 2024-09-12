@@ -21,13 +21,19 @@ body {
     padding-right: 8px;
     display: flex;
     justify-content: right;
-    align-items: end;
     background-color: rgb(255, 255, 255);
+}
+
+.expression {
+    margin-right: auto;
+    padding-left: 16px;
+    padding-top: 8px;
 }
 
 .answer {
     font-size: 24px;
     font-weight: 800;
+    align-self: flex-end;
 }
 
 .keypad {
