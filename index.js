@@ -24,7 +24,7 @@ function operate(op, a, b) {
             return multiply(a,b);
         case '/':
             if(b == 0) {
-                toggleButtons();
+                disableButtons();
                 return "Divide by zero? I can't do that Dave.";
             }
             else {
@@ -64,7 +64,7 @@ function initializeButtons() {
 
     const clearBtn = document.querySelector(".btn.clear");
     clearBtn.addEventListener("click", () => {
-        toggleButtons();
+        enableButtons();
         dispValue.textContent = "";
         firstNum = null;
         secondNum = null;
@@ -117,15 +117,17 @@ function initializeButtons() {
     });
 }
 
-function toggleButtons() {
+function disableButtons() {
     const btns = document.querySelectorAll(".btn.op, .btn.num, .btn.equals");
     btns.forEach(btn => {
-        if(btn.disabled == false) {
-            btn.disabled = true;
-        }
-        else {
-            btn.disabled = false;
-        }
+        btn.disabled = true;
+    });
+}
+
+function enableButtons() {
+    const btns = document.querySelectorAll(".btn.op, .btn.num, .btn.equals");
+    btns.forEach(btn => {
+        btn.disabled = false;
     });
 }
 
