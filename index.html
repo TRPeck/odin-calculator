@@ -6,37 +6,44 @@
     <title>Calculator</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@300&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <h2>Calculator</h2>
-    <div class="container">
-        <div class="disp">
-            <div class="expression"></div>
-            <div class="answer"></div>
-        </div>
-        <div class="keypad">
-            <div class="numbers">
-                <button class="btn num">7</button>
-                <button class="btn num">8</button>
-                <button class="btn num">9</button>
-                <button class="btn num">4</button>
-                <button class="btn num">5</button>
-                <button class="btn num">6</button>
-                <button class="btn num">1</button>
-                <button class="btn num">2</button>
-                <button class="btn num">3</button>
-                <button class="btn num">0</button>
-                <button class="btn decimal">.</button>
+    <div class="background">
+        <div class="container">
+            <div class="disp">
+                <div class="expression"></div>
+                <div class="answer"></div>
             </div>
-            <div class="operations">
-                <button class="btn op">+</button>
-                <button class="btn op">-</button>
-                <button class="btn op">*</button>
-                <button class="btn op">/</button>
-            </div>
-            <div class="calculate">
-                <button class="btn clear">C</button>
-                <button class="btn equals">=</button>
+            <div class="keypad">
+                <div class="numbers">
+                    <button class="btn num">7</button>
+                    <button class="btn num">8</button>
+                    <button class="btn num">9</button>
+                    <button class="btn num">4</button>
+                    <button class="btn num">5</button>
+                    <button class="btn num">6</button>
+                    <button class="btn num">1</button>
+                    <button class="btn num">2</button>
+                    <button class="btn num">3</button>
+                    <button class="btn num zero">0</button>
+                    <button class="btn decimal">.</button>
+                </div>
+                <div class="operations">
+                    <button class="btn op">+</button>
+                    <button class="btn op">-</button>
+                    <button class="btn op">*</button>
+                    <button class="btn op">/</button>
+                </div>
+                <div class="calculate">
+                    <button class="btn bksp"><span class="material-symbols-outlined">backspace</span></button>
+                    <button class="btn clear">C</button>
+                    <button class="btn equals">=</button>
+                </div>
             </div>
         </div>
     </div>

@@ -2,6 +2,16 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    font-family: "Orbitron", sans-serif;
+}
+
+.background {
+    width: 380px;
+    height: 408px;
+    margin: auto;
+    background-color: black;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
@@ -75,11 +85,28 @@ body {
     margin-right: 8px;
     margin-bottom: 8px;
     text-align: center;
+    font-family: "Orbitron", sans-serif;
+    font-size: 16px;
 }
 
 .btn.num {
-    font-size: 16px;
     font-weight: 800;
+}
+
+.zero {
+    width: 136px;
+}
+
+.btn.op {
+    background-color: rgb(173, 171, 171);
+}
+
+.btn.op:hover {
+    background-color: rgb(173, 171, 171, 0.5);
+}
+
+.btn.op:active {
+    background-color: rgb(173, 171, 171);
 }
 
 .btn.clear {
@@ -115,6 +142,8 @@ body {
     background-color: rgb(59, 216, 59, 0.5);
 }
 
-.btn.decimal {
-    margin-left: auto;
+.bksp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
