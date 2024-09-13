@@ -110,3 +110,7 @@ body {
 .btn.equals:active {
     background-color: rgb(59, 216, 59);
 }
+
+.btn.equals:disabled {
+    background-color: rgb(59, 216, 59, 0.5);
+}

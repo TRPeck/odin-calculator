@@ -23,7 +23,13 @@ function operate(op, a, b) {
         case '*':
             return multiply(a,b);
         case '/':
-            return divide(a,b);
+            if(b == 0) {
+                toggleButtons();
+                return "Divide by zero? I can't do that Dave.";
+            }
+            else {
+                return divide(a,b);
+            }
     }
 }
 
@@ -58,6 +64,7 @@ function initializeButtons() {
 
     const clearBtn = document.querySelector(".btn.clear");
     clearBtn.addEventListener("click", () => {
+        toggleButtons();
         dispValue.textContent = "";
         firstNum = null;
         secondNum = null;
@@ -107,6 +114,18 @@ function initializeButtons() {
                 lastOperator = true;
             }
         });
+    });
+}
+
+function toggleButtons() {
+    const btns = document.querySelectorAll(".btn.op, .btn.num, .btn.equals");
+    btns.forEach(btn => {
+        if(btn.disabled == false) {
+            btn.disabled = true;
+        }
+        else {
+            btn.disabled = false;
+        }
     });
 }
 
