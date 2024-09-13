@@ -125,7 +125,6 @@ body {
 
 .btn.equals {
     height: 136px;
-    align-self: flex-end;
     color: white;
     background-color: rgb(59, 216, 59);
 }
