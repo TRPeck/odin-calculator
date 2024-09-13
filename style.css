@@ -114,3 +114,7 @@ body {
 .btn.equals:disabled {
     background-color: rgb(59, 216, 59, 0.5);
 }
+
+.btn.decimal {
+    margin-left: auto;
+}

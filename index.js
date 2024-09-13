@@ -109,11 +109,24 @@ function initializeButtons() {
                 //dispExpression.textContent = dispValue.textContent + op;
             }
             // if two operators in a row overwrite the previous operator
-            else {
+            else if (operator != ""){
                 operator = op;
                 lastOperator = true;
             }
         });
+    });
+
+    const decimalBtn = document.querySelector(".btn.decimal");
+    decimalBtn.addEventListener("click", () => {
+        if(dispValue.textContent == "" || lastOperator == true || evaluated == true) {
+            dispValue.textContent = "0.";
+            lastOperator = false;
+            evaluated = false;
+        }
+        else if(!dispValue.textContent.includes(".") && lastOperator != true) {
+            dispValue.textContent += ".";
+            lastOperator = false;
+        }
     });
 }
 
