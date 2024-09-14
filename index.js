@@ -157,7 +157,12 @@ function initializeButtons() {
 
     const bkspBtn = document.querySelector(".btn.bksp");
     bkspBtn.addEventListener("click", () => {
-        if(dispValue.textContent != "") {
+        // if answer is scientific notation prevent backspace to avoid errors the the 'e' and '+'
+        if(dispValue.textContent.includes("e")) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        else if(dispValue.textContent != "") {
             dispValue.textContent = dispValue.textContent.substring(0, dispValue.textContent.length - 1);
         }
         if(lastOperator == true) {
