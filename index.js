@@ -90,7 +90,7 @@ function initializeButtons() {
         // only calculate if we have a number stored and the display isn't empty, otherwise leave as is
         if(firstNum != null && lastOperator == false){
             secondNum = parseFloat(dispValue.textContent);
-            dispValue.textContent = operate(operator, firstNum, secondNum);
+            dispValue.textContent = parseFloat(operate(operator, firstNum, secondNum)).toFixed(7) * 1;
             firstNum = parseFloat(dispValue.textContent);
         }
         firstNum = null;
@@ -117,7 +117,7 @@ function initializeButtons() {
             // only if we have a number stored and our last button wasn't an operator
             else if(firstNum !== null && lastOperator == false) {
                 secondNum = parseFloat(dispValue.textContent);
-                dispValue.textContent = operate(operator, firstNum, secondNum);
+                dispValue.textContent = parseFloat(operate(operator, firstNum, secondNum)).toFixed(7) * 1;
                 firstNum = parseFloat(dispValue.textContent);
                 operator = op;
                 lastOperator = true;
