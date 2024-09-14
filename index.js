@@ -43,7 +43,7 @@ function initializeButtons() {
     let evaluated = false;
     //let dispExpression = document.querySelector(".expression");
     nums.forEach((btn) => {
-        btn.addEventListener("click", () => {
+        btn.addEventListener("click", (e) => {
             const val = btn.textContent;
             // if last button was operator or equals clear the display
             if (dispValue.textContent != "" && (lastOperator == true || evaluated == true)) {
@@ -60,6 +60,15 @@ function initializeButtons() {
             }
             lastOperator = false;
         });
+        // prevent focus on button after click so enter (=) does not also trigger previously clicked button
+        btn.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+        });
+        window.addEventListener("keydown", (e) => {
+            if(e.key == btn.textContent) {
+                btn.click();
+            }
+        });
     });
 
     const clearBtn = document.querySelector(".btn.clear");
@@ -71,6 +80,9 @@ function initializeButtons() {
         operator = "";
         lastOperator = false;
         evaluated = false;
+    });
+    clearBtn.addEventListener("mousedown", (e) => {
+        e.preventDefault();
     });
 
     const equalsBtn = document.querySelector(".btn.equals");
@@ -86,6 +98,9 @@ function initializeButtons() {
         // set this so we know to overwrite display if any numbers are pressed after equals
         evaluated = true;
         operator = "";
+    });
+    equalsBtn.addEventListener("mousedown", (e) => {
+        e.preventDefault();
     });
 
     const operations = document.querySelectorAll(".btn.op");
@@ -114,6 +129,14 @@ function initializeButtons() {
                 lastOperator = true;
             }
         });
+        btn.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+        });
+        window.addEventListener("keydown", (e) => {
+            if(e.key == btn.textContent) {
+                btn.click();
+            }
+        });
     });
 
     const decimalBtn = document.querySelector(".btn.decimal");
@@ -128,6 +151,9 @@ function initializeButtons() {
             lastOperator = false;
         }
     });
+    decimalBtn.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+    });
 
     const bkspBtn = document.querySelector(".btn.bksp");
     bkspBtn.addEventListener("click", () => {
@@ -141,10 +167,30 @@ function initializeButtons() {
         }
         evaluated = false;
     });
+    bkspBtn.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+    });
+
+    window.addEventListener("keydown", (e) => {
+        switch(e.key) {
+            case ".":
+                decimalBtn.click();
+                break;
+            case "Backspace":
+                bkspBtn.click();
+                break;
+            case "Enter":
+                equalsBtn.click();
+                break;
+            case "Delete":
+                clearBtn.click();
+                break;
+        }
+    });
 }
 
 function disableButtons() {
-    const btns = document.querySelectorAll(".btn.op, .btn.num, .btn.equals .btn.bksp");
+    const btns = document.querySelectorAll(".btn.op, .btn.num, .btn.equals, .btn.bksp");
     btns.forEach(btn => {
         btn.disabled = true;
     });
